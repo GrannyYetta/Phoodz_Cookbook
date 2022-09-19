@@ -7,20 +7,20 @@ const port = process.env.PORT || 3001;
 
 app.use(cors());
 
-app.get("/posts", (req, res) => {
-    res.json(data.items);
+app.get("/recipes", (req, res) => {
+  res.json(data.items);
 });
 
-app.get("/posts/:id", (req, res) => {
-    const id = req.params.id;
+app.get("/recipes/:id", (req, res) => {
+  const id = req.params.id;
 
-    const post = data.items.find((post) => {
-        return post.sys.id === id;
-    });
+  const recipe = data.items.find((recipe) => {
+    return recipe.sys.id === id;
+  });
 
-    res.json(post);
+  res.json(recipe);
 });
 
 app.listen(port, () => {
-    console.log(`server working on http://localhost:${port}`);
+  console.log(`server working on http://localhost:${port}`);
 });

@@ -7,7 +7,7 @@ function App() {
 
     useEffect(() => {
         axios
-            .get("http://localhost:3001/posts")
+            .get("http://localhost:3001/recipes")
             .then((res) => {
                 console.log(res.data);
                 setItems(res.data);
