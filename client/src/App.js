@@ -10,6 +10,7 @@ function App() {
       .get("http://localhost:3001/recipes")
       .then((res) => {
         console.log(res.data);
+        //  setRecipes(response.data.items); from the past project for reference
         setItems(res.data);
       })
       .catch((err) => {
