@@ -1,14 +1,25 @@
-const { Router } = require("express");
-const express = require("express");
-const { getRecipes, getRecipe } = require("../controllers/recipes");
-const recipesRouter = express.Router();
+const data = require("../data.json");
+const getRecipe = (req, res) => {
+  const id = req.params.id;
+  const recipe = data.items.find((recipe) => {
+    return recipe.sys.id === id;
+  });
+  res.json(recipe);
+};
 
-recipesRouter.get("/", getRecipes);
-recipesRouter.get("/:id", getRecipe);
-//homeRouter.route("/").get(getRecipes).post(createRecipes);
-//     res.send("how are u??");
-// });
+const getRecipes = async (req, res) => {
+  /* try {
+        const { rows } = await pool.query("SELECT * FROM  Recipes;");
+        res.json(rows);
+    } catch (error) {
+        res.status(500).send("something went wrong");
+    }*/
+  res.json(data.items);
+};
+
+const createRecipes = async (req, res) => {};
 
 module.exports = {
-  recipesRouter,
+  getRecipes,
+  getRecipe,
 };
