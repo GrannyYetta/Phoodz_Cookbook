@@ -16,7 +16,20 @@ function App() {
                 console.log(err);
             });
     }, []);
-    return <div className='App'></div>;
+    return (
+        <div className='App'>
+            <Navbar />
+            <Routes>
+                <Route path='/' element={<Home recipes={recipes} />} />
+                <Route path='/recipes/:id' element={<RecipePage />} />
+            </Routes>
+        </div>
+        // <div className='App'>
+        //     {Recipes.map((Recipes) => {
+        //         return <p key={Recipes.id}>{Recipes.recipename}</p>;
+        //     })}
+        // </div>
+    );
 }
 
 export default App;
