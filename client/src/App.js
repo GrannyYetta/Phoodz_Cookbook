@@ -21,7 +21,6 @@ function App() {
             <Navbar />
             <Routes>
                 <Route path='/' element={<Home recipes={recipes} />} />
-                <Route path='/about' element={<About />} />
                 <Route path='/recipes/:id' element={<RecipePage />} />
             </Routes>
         </div>
